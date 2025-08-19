@@ -22,12 +22,14 @@ const Featured = () => {
               className="w-full h-full object-cover rounded-lg shadow-darkShadow"
             />
           </div>
+          <div className="w-full flex h-full ml-2">
           <p className="mx-2 text-[.9rem] text-white font-sans font-medium">
             Our little space for adventures on two wheels 🚴‍♂️❤️. Here we share
             our road trips, favorite routes, hidden spots, and memories from our
             journeys together. It’s mainly for us to keep, but anyone is welcome
             to drop by, get inspired, and maybe even plan their own ride.
           </p>
+          </div>
         </div>
         <div className=" overflow-hidden grid place-items-center gap-2 grid-cols-2 grid-rows-2 p-2 md:grid-cols-4 md:grid-rows-1 w-full">
           <Cards />
