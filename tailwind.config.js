@@ -13,11 +13,14 @@ export default {
       },
       colors:{
           customGray: "#111111",
-          button: "#00ffff"
+          button: "#0eebebff"
       },
       backgroundImage:{
           'bgImage': "url('./assets/Pic1.jpg')",
       },
+      boxShadow: {
+        'darkShadow': '0 8px 20px rgba(0, 0, 0, 0.9)',
+      }
     },
   },
   plugins: [],

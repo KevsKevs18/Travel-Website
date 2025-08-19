@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col p-2">
+      <div className="w-full min-h-screen flex flex-col">
         <Home/>
         <Featured/>
       </div>
