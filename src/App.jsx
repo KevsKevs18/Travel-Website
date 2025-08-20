@@ -8,10 +8,15 @@ function App() {
 
   return (
     <>
+    <main className="w-full min-h-screen flex flex-col lg:flex-row">
       <div className="w-full min-h-screen flex flex-col">
         <Home/>
         <Featured/>
       </div>
+      <div>
+        second div
+      </div>
+      </main>
     </>
   )
 }
