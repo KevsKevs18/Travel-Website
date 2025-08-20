@@ -15,9 +15,9 @@ const Cards = () => {
     {cardFeatures.map((card, index) => ( 
     <div className='flex overflow-hidden flex-col w-full h-[11rem] rounded-xl' key={index}>
         <img src={card.src} alt="Sample Pic" className='w-full h-[70%] rounded-t-xl shadow-darkShadow brightness-75 transform-translate-transform duration-300 hover:scale-110'/>
-            <h3 className='mt-2 ml-2 text-white font-sans font-bold'>{card.title}
+            <h3 className='mt-2 ml-2 text-light font-sans font-bold'>{card.title}
             </h3>
-            <p className='ml-2 text-[.8rem] text-gray-500 font-sans mt-[-5px] font-medium'>{card.descrip}</p>
+            <p className='ml-2 text-[.8rem] text-muted font-sans mt-[-5px] font-medium'>{card.descrip}</p>
         
     </div>
     ))}

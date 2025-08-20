@@ -8,9 +8,10 @@ const Featured = () => {
       title="Featured Trips"
       iconClass="ri-gallery-view-2"
       iconClass2="ri-edit-2-line"
+      className="mt-2 lg:rounded-xl"
     >
-      <div className="grid  grid-rows-[auto_auto] mb-4 place-items-center gap-2 w-full min-h-[20rem] lg:grid-cols-2 lg:grid-rows-1">
-        <div className="grid grid-rows-[auto_auto] md:grid-rows-1 md:grid-cols-[1fr_400px] lg:grid-cols-1 lg:grid-rows-[1fr_80px] ">
+      <div className="grid  grid-rows-[auto_auto] mb-4 place-items-center gap-2 w-full min-h-[20rem]">
+        <div className="grid grid-rows-[auto_auto] md:grid-rows-1 md:grid-cols-[1fr_400px] lg:grid-rows-1 lg:grid-cols-[1fr_300px] ">
           <div className="w-full mb-auto aspect-[16/9] rounded-lg px-2">
             <video
               src="/tryvideo.mp4"
@@ -23,7 +24,7 @@ const Featured = () => {
             />
           </div>
           <div className="w-full flex jusstify-center h-full p-3 md:pt-0 ">
-          <p className="text-[.9rem] text-white font-sans font-medium">
+          <p className="text-[.9rem] text-light font-[Gothic]">
             Our little space for adventures on two wheels 🚴‍♂️❤️. Here we share
             our road trips, favorite routes, hidden spots, and memories from our
             journeys together. It’s mainly for us to keep, but anyone is welcome

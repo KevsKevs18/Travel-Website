@@ -13,7 +13,9 @@ export default {
       },
       colors:{
           customGray: "#111111",
-          button: "#0eebebff"
+          button: "#00ffc6",
+          light: "#F5F5F5",
+          muted: "#A1A1A1"
       },
       backgroundImage:{
           'bgImage': "url('./assets/Pic1.jpg')",
