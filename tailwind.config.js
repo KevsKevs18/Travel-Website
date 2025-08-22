@@ -13,7 +13,7 @@ export default {
       },
       colors:{
           customGray: "#111111",
-          button: "#00ffc6",
+          button: "#94dd8e",
           light: "#F5F5F5",
           muted: "#A1A1A1"
       },
