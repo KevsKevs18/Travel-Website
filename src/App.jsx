@@ -14,7 +14,7 @@ function App() {
         <Home/>
         <Featured/>
       </div>
-      <div className="w-full min-h-screen flex flex-col md:min-h-[300px]">
+      <div className="w-full h-auto flex flex-col">
         <Gallery/>
       </div>
       </main>

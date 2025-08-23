@@ -2,7 +2,9 @@ import React from 'react'
 
 const Beach = () => {
   return (
-    <div>Beach</div>
+    <div className=''>
+        
+    </div>
   )
 }
 
