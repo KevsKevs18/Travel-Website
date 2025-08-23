@@ -21,7 +21,7 @@ const Cards = () => {
         <div className='flex overflow-hidden w-full aspect-square md:aspect-[4/3] rounded-xl'>
         <img src={card.src} alt="Sample Pic" className='w-full h-full rounded-t-xl shadow-darkShadow brightness-75 transform-translate-transform duration-300 hover:scale-110'/>
             </div>
-            <h3 className='my-2 ml-2 text-light font-sans font-bold'>{card.title}</h3>
+            <h3 className='my-2 ml-2 text-light text-[1rem] font-sans font-bold'>{card.title}</h3>
            
         
     </div>
