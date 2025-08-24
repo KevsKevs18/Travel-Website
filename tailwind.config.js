@@ -22,6 +22,7 @@ export default {
       },
       boxShadow: {
         'darkShadow': '0 8px 20px rgba(0, 0, 0, 0.9)',
+        'wrapperShadow': '1px 1px 20px #94dd8e',
       }
     },
   },
