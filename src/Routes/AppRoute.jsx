@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Homepage from "./Pages/Homepage.jsx";
-import Beach from "./Pages/Beach.jsx";
-import Cities from "./Pages/Cities.jsx";
+import Homepage from "../Pages/Homepage.jsx";
+import Beach from "../Pages/Beach.jsx";
+import Cities from "../Pages/Cities.jsx";
 
 
 const AppRoute = () => {
