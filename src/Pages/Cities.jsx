@@ -3,6 +3,7 @@ import Wrapper from '../Components/Wrapper.jsx'
 import TopWrapper from '../Components/TopWrapper.jsx'
 import Gallery from '../Sections/Gallery.jsx'
 
+
 const Cities = () => {
   return (
     <>
