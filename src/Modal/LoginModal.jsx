@@ -53,6 +53,7 @@ const LoginModal = ({ isOpen, onClose}) => {
         }, 4000);
       } else {
         setMessage(`❌ ${data.message}`);
+        setisLoading(false);
       }
     } catch (error) {
       setMessage("⚠️ Server error, try again later.");
