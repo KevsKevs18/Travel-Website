@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { ClipLoader } from "react-spinners";
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
-const AddModal = ({ isOpen, onClose}) => {
+const LoginModal = ({ isOpen, onClose}) => {
 
     useEffect (() => {
          if (isOpen) {
@@ -42,11 +42,9 @@ const AddModal = ({ isOpen, onClose}) => {
 
       if (res.ok) {
         localStorage.setItem("token", "sampleToken");
-        setisLoading(true);
         setTimeout(() => {
-            setisLoading(false);
             setMessage("✅ Login successful!");
-            
+            setisLoading(false);
         }, 2000);
 
         setTimeout(() => {
@@ -68,6 +66,7 @@ const AddModal = ({ isOpen, onClose}) => {
         setisSuccess(false);
         
   };
+
 
 
 
@@ -108,7 +107,8 @@ const AddModal = ({ isOpen, onClose}) => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600"
+          className={`w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 ${isLoading ? "bg-muted pointer-events-none cursor-none" : "none"}  `}
+          onClick={()=> setisLoading(true)}
         >
           Login
         </button>
@@ -130,4 +130,4 @@ const AddModal = ({ isOpen, onClose}) => {
   )
 }
 
-export default AddModal
+export default LoginModal

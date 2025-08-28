@@ -3,7 +3,7 @@ import Wrapper from '../Components/Wrapper.jsx'
 import TopWrapper from '../Components/TopWrapper.jsx'
 import Gallery from '../Sections/Gallery.jsx'
 import BlogWrapper from '../Components/BlogWrapper.jsx'
-import AddModal from '../Modal/AddModal.jsx'
+import AddModal from '../Modal/LoginModal.jsx'
 
 
 const Admin = () => {

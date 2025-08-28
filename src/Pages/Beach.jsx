@@ -3,7 +3,7 @@ import Wrapper from '../Components/Wrapper.jsx'
 import TopWrapper from '../Components/TopWrapper.jsx'
 import Gallery from '../Sections/Gallery.jsx'
 import BlogWrapper from '../Components/BlogWrapper.jsx'
-import AddModal from '../Modal/AddModal.jsx'
+import LoginModal from '../Modal/LoginModal.jsx'
 import { useState } from 'react'
 
 const Beach = () => {
@@ -27,7 +27,7 @@ const Beach = () => {
     <Gallery/>
     </div>
     </div>
-     <AddModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+     <LoginModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
         
      
     </>
