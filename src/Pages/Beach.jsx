@@ -8,6 +8,10 @@ import { useState } from 'react'
 
 const Beach = () => {
  const [isOpen, setIsOpen] = useState(false);
+
+
+
+
   return (
    
     <>
