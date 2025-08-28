@@ -109,8 +109,8 @@ const LoginModal = ({ isOpen, onClose}) => {
 
         <button
           type="submit"
-          className={`w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 ${isLoading ? "bg-muted pointer-events-none cursor-none" : "none"}  `}
-          onClick={()=> setisLoading(true)}
+          className={`w-full  text-white py-2 rounded-xl  ${isLoading ? "bg-muted pointer-events-none cursor-none" : "bg-blue-500 hover:bg-blue-600"}  `}
+          onClick={()=> { setisLoading(true); setMessage("");}}
         >
           Login
         </button>
