@@ -79,7 +79,7 @@ const LoginModal = ({ isOpen, onClose}) => {
         <div className="bg-white  p-6 rounded-2xl shadow-lg flex flex-col justify-center w-96 relative">
         {/* Close button */}
         <button
-          onClick={()=> { eraseCred(); onClose();}}
+          onClick={()=> { eraseCred(); onClose(); setisLoading(false)}}
           className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
         >
           X
@@ -87,7 +87,7 @@ const LoginModal = ({ isOpen, onClose}) => {
     {!isSuccess && (
        <form
         onSubmit={handleLogin}
-        className="bg-white p-6 rounded-2xl shadow-md w-full"
+        className="bg-white p-6 rounded-2xl shadow-md w-full mb-2"
       >
         <h2 className="text-xl font-bold mb-4 text-center">Login First</h2>
         

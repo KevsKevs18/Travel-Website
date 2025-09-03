@@ -1,54 +1,90 @@
 import React from "react";
-import beach from "../assets/Beach.jpg";
+import { useState, useEffect } from "react";
+import { ClipLoader } from "react-spinners";
+import AddModal from "../Modal/AddModal";
 
-const BlogWrapper = () => {
+const BlogWrapper = ({ deleteIcon = ""}) => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
+
+  const autoSync = () => {
+    fetch("https://travel-api-8ud3.onrender.com/blogs")
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data);
+        setisLoading(false);
+      })
+      .catch((err) => console.error("❌ Error fetching images:", err));
+  };
+
+   useEffect(() => {
+      autoSync();
+
+   },[]);
+
+  const imgLoad = () => {
+    setisLoading(false);
+  };
+
+
+  const handleDelete = async (id) => {
+      try {
+        const res = await fetch(`https://travel-api-8ud3.onrender.com/blogs/${id}`, {
+          method: "DELETE",
+        });
+        const data = await res.json();
+        alert(data.message);
+  
+        // Refresh list after delete
+        autoSync();
+      } catch (err) {
+        alert("❌ Error deleting image");
+      }
+    };
+     
+
   return (
-    <div className="w-full min-h-[25rem] px-4 py-2 grid grid-rows-auto md:grid-cols-2">
-      <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-muted">
-        <div className="w-full h-full">
-          <h2 className="font-sans font-bold text-[1.3rem] text-light">
-            Sample Title To Our First Ever Blog
-          </h2>
-          <img
-            src={beach}
-            alt="beach pic"
-            className="w-full h-[10rem] my-2 rounded-xl"
-          />
-          <small className="text-muted text-[.7rem]"><span className="ri-calendar-line mr-2 text-[1rem]"></span>August 26, 2025</small>
+    <>
+    {isLoading ? (
+        <div className="inset-0 w-full h-full flex items-center justify-center">
+          <ClipLoader color="#36d7b7" size={50} />
         </div>
-        <div className="w-full h-full">
-          <p className="font-sans font-medium text-light mt-2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere cum
-            harum provident pariatur aliquam laudantium, quos quas. Dolorem illo
-            harum qui ab, placeat assumenda tenetur reprehenderit aspernatur
-            error, laudantium nobis!
-            
-          </p>
+      ) : (
+    <div className="relative w-full min-h-[25rem] px-4 py-2 grid grid-rows-auto md:grid-cols-2">
+      {images.map((img) => (
+        <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-muted overflow-x-hidden">
+          <div className="w-full h-full">
+            <h2 className="font-sans font-bold text-[1.3rem] text-light">
+              <span className={`${deleteIcon} cursor-pointer`} onClick={()=> handleDelete(img._id)}> </span>
+              {img.title}
+            </h2>
+            <img
+              src={`https://travel-api-8ud3.onrender.com/blogs/${img._id}`}
+              alt="beach pic"
+              onLoad={imgLoad}
+              className="w-full h-[10rem] my-2 rounded-xl"
+            />
+            <small className="text-muted text-[.7rem]">
+              <span className="ri-calendar-line mr-2 text-[1rem]"></span>
+              {new Date(img.date).toLocaleDateString("en-PH", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </small>
+          </div>
+          <div className="w-full h-full">
+            <p className="font-sans break-words font-medium text-light mt-2">
+              {img.description}
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-muted">
-        <div className="w-full h-full">
-          <h2 className="font-sans font-bold text-[1.3rem] text-light">
-            Sample Title To Our First Ever Blog
-          </h2>
-          <img
-            src={beach}
-            alt="beach pic"
-            className="w-full h-[10rem] my-2 rounded-xl"
-          />
-          <small className="text-muted text-[.7rem]"><span className="ri-calendar-line mr-2 text-[1rem]"></span>August 26, 2025</small>
-        </div>
-        <div className="w-full h-full">
-          <p className="font-sans font-medium text-light mt-2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere cum
-            harum provident pariatur aliquam laudantium, quos quas. Dolorem illo
-            harum qui ab, placeat assumenda tenetur reprehenderit aspernatur
-            error, laudantium nobis!
-          </p>
-        </div>
-      </div>
+      ))}
+      
     </div>
+    )}
+    <AddModal autoSync={autoSync()}/>
+    </>
   );
 };
 
