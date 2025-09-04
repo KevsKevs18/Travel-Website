@@ -10,7 +10,7 @@ const location = useLocation();
     const navType = performance.getEntriesByType("navigation");
     if (navType.length > 0 && navType[0].type === "reload") {
       // re-navigate to the same page
-      localStorage.removeItem("token");
+      localStorage.getItem("token");
       navigate(location.pathname, { replace: true });
     }
   }, []);

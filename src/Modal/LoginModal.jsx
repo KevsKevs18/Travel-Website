@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ClipLoader } from "react-spinners";
 import {useNavigate } from 'react-router-dom';
 
-const LoginModal = ({ isOpen, onClose}) => {
+const LoginModal = ({ isOpen, onClose, modalClose}) => {
 
     useEffect (() => {
          if (isOpen) {
@@ -79,7 +79,7 @@ const LoginModal = ({ isOpen, onClose}) => {
         <div className="bg-white  p-6 rounded-2xl shadow-lg flex flex-col justify-center w-96 relative">
         {/* Close button */}
         <button
-          onClick={()=> { eraseCred(); onClose(); setisLoading(false)}}
+          onClick={()=> { eraseCred(); onClose(); setisLoading(false); modalClose}}
           className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
         >
           X

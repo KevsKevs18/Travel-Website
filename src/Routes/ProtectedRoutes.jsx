@@ -7,10 +7,15 @@ const ProtectedRoutes = ({ children }) => {
 const [showLogin, setShowLogin] = useState(!isAuthenticated());
 const navigate = useNavigate();
 
+const modalClose = ()=> {
+
+navigate("/");
+};
+
   if (!isAuthenticated()) {
     return (
       <>
-      <LoginModal isOpen={showLogin} onClose={() => {setShowLogin(false); navigate("/");}} />
+      <LoginModal isOpen={showLogin} onClose={() => {setShowLogin(false);}} />
       </>
     );
     }
