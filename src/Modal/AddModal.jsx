@@ -38,7 +38,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:5000/upload", {
+      const res = await fetch("https://travel-api-8ud3.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
