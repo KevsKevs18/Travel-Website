@@ -26,9 +26,9 @@ const handleAdmin = ()=> {
   return (
    
     <>
-    <TopWrapper topIcon="ri-arrow-left-line" topClick={()=> navigate("/")}/>
+    <TopWrapper leftIcon="ri-arrow-left-line" rightIcon="ri-admin-line" leftClick={()=> navigate("/")} openModal={()=>handleAdmin()}/>
     <div className='grid w-full h-auto  lg:grid-cols-[1fr_auto] lg:p-4 lg:gap-2'>
-    <Wrapper title="Ride to the Shore" className="min-h-screen mt-0 lg:rounded-xl pb-4 " iconClass2="ri-admin-line cursor-pointer" openModal={()=>handleAdmin()}>
+    <Wrapper title="Ride to the Shore" className="min-h-screen mt-0 lg:rounded-xl pb-4" titleClass="font-[Gothic] font-bold text-[1.5rem]">
 
         <BlogWrapper/>
 

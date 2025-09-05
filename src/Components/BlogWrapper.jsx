@@ -52,9 +52,9 @@ const BlogWrapper = ({ deleteIcon = ""}) => {
       ) : (
     <div className="relative w-full min-h-[25rem] px-4 py-2 grid grid-rows-auto md:grid-cols-2">
       {images.map((img) => (
-        <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-muted overflow-x-hidden">
+        <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-customGray overflow-x-hidden">
           <div className="w-full h-full">
-            <h2 className="font-sans font-bold text-[1.3rem] text-light">
+            <h2 className="font-cursiveFont font-bold text-[1.3rem] text-light">
               <span className={`${deleteIcon} cursor-pointer`} onClick={()=> handleDelete(img._id)}> </span>
               {img.title}
             </h2>
@@ -62,9 +62,9 @@ const BlogWrapper = ({ deleteIcon = ""}) => {
               src={`https://travel-api-8ud3.onrender.com/blogs/${img._id}`}
               alt="beach pic"
               onLoad={imgLoad}
-              className="w-full h-[10rem] my-2 rounded-xl"
+              className="w-full my-2 rounded-xl aspect-[16/9]"
             />
-            <small className="text-muted text-[.7rem]">
+            <small className="text-neutral-500 text-[.7rem]">
               <span className="ri-calendar-line mr-2 text-[1rem]"></span>
               {new Date(img.date).toLocaleDateString("en-PH", {
                 year: "numeric",
@@ -74,7 +74,7 @@ const BlogWrapper = ({ deleteIcon = ""}) => {
             </small>
           </div>
           <div className="w-full h-full">
-            <p className="font-sans break-words font-medium text-light mt-2">
+            <p className="font-[Gothic] break-words font-medium text-light mt-2">
               {img.description}
             </p>
           </div>

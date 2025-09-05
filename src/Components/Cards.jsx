@@ -43,7 +43,7 @@ const Cards = () => {
               className="cursor-pointer w-full h-full rounded-t-xl shadow-darkShadow brightness-75 transform-translate-transform duration-300 hover:scale-110"
             />
           </div>
-          <h3 className="my-2 ml-2 text-light text-[1rem] font-sans font-bold">
+          <h3 className="my-2 ml-2 text-light text-[1rem] font-[Gothic] font-bold">
             {card.title}
           </h3>
         </div>

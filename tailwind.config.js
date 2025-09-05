@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {
 
+      fontFamily:{
+          cursiveFont: ["Alex Brush", "cursive"],
+      },
+
       screens:{
           sm: '640px',
           md: '768px',

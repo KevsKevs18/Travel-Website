@@ -24,7 +24,8 @@ const Admin = () => {
 
   return (
      <>
-        <TopWrapper topIcon="ri-logout-circle-line" topClick={removeToken}/>
+         <TopWrapper leftIcon="ri-logout-circle-line" leftClick={removeToken}/>
+      
         <div className='grid w-full h-auto  lg:grid-cols-[1fr_auto] lg:p-4 lg:gap-2'>
         <Wrapper title="Admin Panel" className="min-h-screen mt-0 lg:rounded-xl pb-4" iconClass2="ri-apps-2-add-line cursor-pointer" openModal={()=> setIsOpen(true)}>
     

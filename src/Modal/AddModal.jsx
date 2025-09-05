@@ -107,8 +107,9 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
 
         <button
           type="submit"
-          className={`w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl `}
-        >
+          className={`w-full text-white py-2 rounded-xl ${isLoading ? "bg-muted pointer-events-none cursor-none" : "bg-blue-500 hover:bg-blue-600"}}`}
+          onClick={()=> setisLoading(true)}
+         >
           Save
         </button>
 
