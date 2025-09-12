@@ -1,5 +1,4 @@
 import React from "react";
-import samplepic2 from "../assets/Pic2.jpg";
 import beach from "../assets/Beach.jpg";
 import city from "../assets/City.jpg";
 import longride from "../assets/Longride.jpg";
@@ -10,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 const Cards = () => {
   const cardFeatures = [
     { src: beach, title: "Ride to the Shore", path: "/features/beach"},
-    { src: city, title: "Metro Miles", path: "/features/cities"},
-    { src: longride, title: "Endless Roads", path: "/features/beach"},
-    { src: mountain, title: "Ride to the Peaks", path: "/features/beach"},
+    { src: city, title: "Metro Miles", path: "/features/city"},
+    { src: longride, title: "Endless Roads", path: "/features/road"},
+    { src: mountain, title: "Ride to the Peaks", path: "/features/mountain"},
   ];
 
   const [isClick, setIsClick] = useState(

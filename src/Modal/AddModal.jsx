@@ -6,6 +6,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
     const [title, setTitle] = useState ("");
    const [file, setFile] = useState(null);
     const [descrip, setDescrip] = useState ("");
+    const [category, setCategory] = useState ("");
     const [message, setMessage] = useState ("");
     const [isLoading, setisLoading] = useState ("");
 
@@ -27,6 +28,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
         setDescrip("");
         setMessage("");
         setFile(null);
+        setCategory("");
     }
 
     const handleSubmit = async (e) => {
@@ -35,6 +37,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", descrip);
+    formData.append("category", category);
     formData.append("file", file);
 
     try {
@@ -59,6 +62,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
       }, 3000);
     } catch (err) {
       setMessage("❌ Error uploading file");
+      setisLoading(false);
     }
   };
 
@@ -96,6 +100,16 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
           className="block w-full h-40 placeholder:top-0 align-top p-2 border shadow-darkShadow rounded-xl mb-3"
         />
 
+        <select
+        className='w-full p-2 rounded bg-gray-800'
+        value={category}
+        onChange={(e)=> setCategory(e.target.value)}>
+          <option value="city">City</option>
+          <option value="beach">Beach</option>
+          <option value="mountain">Mountain</option>
+          <option value="road">Road</option>
+        </select>
+
         <input
             type="file"
              onChange={(e) => setFile(e.target.files[0])}
@@ -108,7 +122,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
         <button
           type="submit"
           className={`w-full text-white py-2 rounded-xl ${isLoading ? "bg-muted pointer-events-none cursor-none" : "bg-blue-500 hover:bg-blue-600"}}`}
-          onClick={()=> setisLoading(true)}
+          onClick={()=> {setisLoading(true); autoSync}}
          >
           Save
         </button>
