@@ -9,6 +9,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const AllBlogs = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isTitle, setIsTitle] = useState("");
+  const [isheader, setIsHeader] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,10 +32,14 @@ const AllBlogs = () => {
     } else if (location.pathname === "/features/mountain") {
       setIsTitle("Ride to the Peaks");
     }
+    else if (location.pathname === "/features/admin") {
+      setIsHeader(false);
+    }
   }, []);
 
   return (
     <>
+      {isheader && 
       <TopWrapper
         leftIcon="ri-arrow-left-line"
         rightIcon="ri-admin-line"
@@ -42,6 +47,7 @@ const AllBlogs = () => {
         openModal={() => handleAdmin()}
         className="lg:px-64"
       />
+      }
       <div className="grid w-full h-auto  lg:grid-cols-[1fr_auto] lg:p-4 lg:gap-2 lg:px-64">
         <Wrapper
           title={isTitle}

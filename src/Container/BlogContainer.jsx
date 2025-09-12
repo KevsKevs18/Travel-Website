@@ -4,7 +4,7 @@ import BlogWrapper from "../Components/BlogWrapper.jsx";
 import { ClipLoader } from "react-spinners";
 import Confirmation from "../Modal/Confirmation.jsx";
 import AddModal from "../Modal/AddModal.jsx";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 const BlogContainer = ({ iconDelete }) => {
   const { category } = useParams();
@@ -12,20 +12,46 @@ const BlogContainer = ({ iconDelete }) => {
   const [isLoading, setisLoading] = useState(true);
   const [isdelete, setIsDelete] = useState(false);
   const [deleteLoading, setdelLoading] = useState(false);
+  const [isDeleteIcon, setIcon] = useState(false);
+  const [isdeleteId, setdeleteId] = useState(null);
+  
 
+  const location = useLocation();
+
+  useEffect (()=>{
+     if (location.pathname === "/features/admin"){
+      setIcon(true);
+     }
+  },[]);
+
+  //get blogs by category
   const autoSync = () => {
-    fetch(`https://travel-api-8ud3.onrender.com/blogs/${category}`)
+
+    if (location.pathname === "/features/admin"){
+      
+    fetch("https://travel-api-8ud3.onrender.com/blogs")
       .then((res) => res.json())
       .then((data) => {
         setImages(data);
         setisLoading(false);
       })
       .catch((err) => console.error("❌ Error fetching images:", err));
+    }
+    else {
+      fetch(`https://travel-api-8ud3.onrender.com/blogs/${category}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data);
+        setisLoading(false);
+      })
+      .catch((err) => console.error("❌ Error fetching images:", err));
+    }
   };
 
   useEffect(() => {
     autoSync();
   }, [category]);
+
 
   const imgLoad = () => {
     setisLoading(false);
@@ -47,6 +73,8 @@ const BlogContainer = ({ iconDelete }) => {
       autoSync();
     } catch (err) {
       alert("❌ Error deleting image");
+      setdelLoading(false);
+      setisLoading(false);
     }
   };
 
@@ -61,6 +89,8 @@ const BlogContainer = ({ iconDelete }) => {
 
 
 
+
+
   return (
     <>
       {isLoading ? (
@@ -70,24 +100,26 @@ const BlogContainer = ({ iconDelete }) => {
       ) : (
         <div className="relative w-full min-h-[25rem] px-4 py-2 grid grid-rows-auto md:px-16">
           {formatted.map((img) => (
+            
             <BlogWrapper
-              key={img._id}
-              deleteIcon={iconDelete}
+              keyProps={img._id}
+              deleteIcon={isDeleteIcon ? "ri-delete-bin-3-line" : "none"}
               title={img.title}
               description={img.description}
               imageUrl={img.imageUrl}
-              handleDelete={() => setIsDelete(true)}
+              handleDelete={() => {setdeleteId(img._id); setIsDelete(true);}}
               imgLoad={imgLoad}
               imgDate={img.date}
               autoSync={() => autoSync()}
             />
+             
+           
           ))}
         </div>
       )}
-        {images.map((img) => (
-           
-      <Confirmation notDelete={()=> setIsDelete(!isdelete)} isdelete={isdelete} deleteMe={()=>{ handleDelete(img._id); setIsDelete(!isdelete); setdelLoading(true);}}/>
-      ))}
+      {isdelete && 
+      <Confirmation notDelete={()=> setIsDelete(!isdelete)} isdelete={isdelete} deleteMe={()=>{ handleDelete(isdeleteId); setIsDelete(!isdelete); setdelLoading(true);}}/>
+      }
       {deleteLoading && 
        <div className="fixed inset-0 flex px-4 z-50 bg-black/40 backdrop-blur-sm justify-center items-center">
         <ClipLoader  color="#36d7b7" size={50}/>

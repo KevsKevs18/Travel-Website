@@ -4,6 +4,7 @@ import TopWrapper from "../Components/TopWrapper.jsx";
 import BlogContainer from "../Container/BlogContainer.jsx";
 import AddModal from "../Modal/AddModal.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
+import AllBlogs from "./AllBlogs.jsx";
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const Admin = () => {
           iconClass2="ri-apps-2-add-line cursor-pointer"
           openModal={() => setIsOpen(true)}
         >
-          <BlogContainer iconDelete="ri-delete-bin-3-line" />
+          <AllBlogs/>
         </Wrapper>
         <AddModal
           isOpen={isOpen}

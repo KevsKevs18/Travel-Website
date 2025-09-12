@@ -1,7 +1,7 @@
 import React from "react";
 import AddModal from "../Modal/AddModal";
 
-const BlogWrapper = ({ deleteIcon = "", title, description, imageUrl, handleDelete, imgLoad, imgDate, autoSync}) => {
+const BlogWrapper = ({ deleteIcon = "", title, description, imageUrl, handleDelete, imgLoad, imgDate, autoSync, keyProps}) => {
 
      
 
@@ -9,7 +9,7 @@ const BlogWrapper = ({ deleteIcon = "", title, description, imageUrl, handleDele
     <>
    
         <div className="w-full h-auto flex flex-col p-2 border-b-[2px] border-customGray overflow-x-hidden">
-          <div className="w-full h-full">
+          <div className="w-full h-full" key={keyProps}>
             <h2 className="font-[Gothic] font-bold text-[2rem] text-light">
               <span className={`${deleteIcon} text-red-500 cursor-pointer`} onClick={handleDelete}> </span>
               {title}

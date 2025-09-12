@@ -27,7 +27,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
         setTitle("");
         setDescrip("");
         setMessage("");
-        setFile(null);
+        setFile("");
         setCategory("");
     }
 
@@ -104,6 +104,7 @@ const AddModal = ({isOpen, onClose, autoSync}) => {
         className='w-full p-2 rounded bg-gray-800'
         value={category}
         onChange={(e)=> setCategory(e.target.value)}>
+          <option value="">Select Category</option>
           <option value="city">City</option>
           <option value="beach">Beach</option>
           <option value="mountain">Mountain</option>
